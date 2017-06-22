@@ -32,14 +32,17 @@ def collatz(n):
 
 	return p
 
-record = 10
-answer = 13
+def main():
+	record = 10
+	answer = 13
 
-for i in range(2, 1000000):
-	p = collatz(i)
-	if p > record:
-		answer = i
-		record = p
-		print answer, '--', record
+	for i in range(2, 1000000):
+		p = collatz(i)
+		if p > record:
+			answer = i
+			record = p
+			print answer, '--', record
 
-print answer
+	print answer
+
+main()

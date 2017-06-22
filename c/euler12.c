@@ -27,15 +27,25 @@ int find_num_factors(int n);
 // finds the number of factors for a number.
 
 int main() {
-  int a = find_num_factors(12);
-  printf("%d\n", a);
+  int numfactors = 2;
+  int i = 2;
+  int triangle = 3;
+  while (numfactors < 50) {
+    triangle += i;
+    i++;
+    numfactors = find_num_factors(triangle);
+    printf("%d -- %d \n", triangle, numfactors);
+
+  }
+  printf("answer = %d \n", triangle);
 }
 
 int find_num_factors(int n) {
   int limit = n;
-  int i;
-  int numfactors = 0;
+  int i = 1;
+  int numfactors = 2;
   while (limit > i) {
+    // printf("%i\n", i);
     if (limit % i == 0) {
       numfactors += 2;
       limit = n/i;

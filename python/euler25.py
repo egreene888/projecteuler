@@ -22,13 +22,15 @@ def main():
     Fnminus2 = 1
     n = 3
 
-    while Fn < 1e999:
+    # Because a thousand-digit number just ends up as inf
+    while len(str(Fn)) < 1000:
         # while Fn < 1e2: # test case
         Fnminus2 = Fnminus1
         Fnminus1 = Fn
         Fn = Fnminus1 + Fnminus2
 
         n += 1
+        # print len(str(Fn))
 
     print 'The first fibonacci number with more than 1000 digits is number {}'.format(n)
 

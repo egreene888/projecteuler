@@ -29,7 +29,11 @@ def is_abundant(n):
     i = 2
     while i < limit:
         if n % i == 0:
-            factors += i + n/i
+            if i == n/i:
+                factors += i
+            else:
+                factors += (i + n/i)
+            # print '{} and {} are factors of {}'.format(i, n/i, n)
             limit = n/i
         i += 1
         # print factors, limit, i
@@ -38,28 +42,52 @@ def is_abundant(n):
     else:
         return False # no special case for perfect numbers. They're not abundant
 
+
 def is_sum(L, n):
-    for i in L:
-        for j in L:
-            if i + j == n:
+    # print L, n
+    # print len(L)
+    for i in xrange(len(L)):
+        start = i
+        stop = len(L) - 1
+        # print len(L)
+        while start <= stop:
+            j = (stop + start) / 2
+            # print start, j, stop
+            if L[i] + L[j] == n:
                 return True
-            elif i + j > n:
-                break
+            elif L[i] + L[j] > n:
+                stop = j - 1
+            elif L[i] + L[j] < n:
+                start = j + 1
     return False
 
 def main():
     abundants = []
     answer = 0
-    for i in range(24, 200):
+    # for i in range(1, 30):
+    for i in range(1, 28123):
         if is_abundant(i):
             abundants.append(i)
-        if is_sum(abundants, i):
+        if not is_sum(abundants, i):
             answer += i
-        if i % 1000 == 0:
-            print i
+            print '{} is NOT a sum of abundant numbers'.format(i)
+        else:
+            print '{} is a sum'.format(i)
+        print 'current running total = {}\n'.format(answer)
 
     print answer
+    # wrong answers include
+    # 3921522
+    # 4179870
 
+    # right answers may inlcude:
+    # 4179871
 
+def notmain():
+    for i in range(12, 17):
+        # print '\n{}'.format(i)
+        print is_abundant(i)
+
+# notmain()
 
 main()

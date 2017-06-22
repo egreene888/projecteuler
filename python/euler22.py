@@ -12,6 +12,7 @@ obtain a score of 938 x 53 = 49714.
 
 What is the total of all the name scores in the file?
 """
+import time
 
 def readfile():
     f = open('p022_names.txt', 'r')
@@ -35,8 +36,6 @@ def sortlist(L):
                 issorted = False
 
 
-
-
 def score(S):
     alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     score = 0
@@ -48,10 +47,12 @@ def score(S):
 
 def main():
     listofnames = readfile()
+    reftime = time.time()
     # sortlist(listofnames)
     # wait a sec. Python has a built-in sort function.
     listofnames.sort()
     print 'Sorted List'
+    print 'That took {} sec'.format(time.time() - reftime)
 
     answer = 0
     # calculate scores
