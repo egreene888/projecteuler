@@ -8,29 +8,23 @@ It doesn't run quickly.
 
 Works... kinda.
 """
+import math
 
 def main():
-    # n = 10
-    n = 2000000
-
-    answer = 0
-
-    L = range(2, n)
-
-    for i in range(len(L)):
-        if L[i] == 0:
-            continue
-        for j in range(len(L)):
-            if L[j] == 0 or L[j] == L[i]:
-                continue
-            if L[j] % L[i] == 0:
-                L[j] = 0
-        
-    answer = sum(L)
-
-
-
-    print 'The answer is %d' %(answer)
-
+    sumofprimes = 0
+    primes = []
+    for i in range(2, 2000000):
+        primeflag = True
+        for prime in primes:
+            if prime > math.sqrt(i):
+                break
+            if i % prime == 0:
+                primeflag = False
+                break
+        if primeflag:
+            primes.append(i)
+            sumofprimes += i
+            # print i
+    print sumofprimes
 
 main()

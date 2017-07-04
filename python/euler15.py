@@ -70,8 +70,8 @@ def main():
 	# answer = f(n) / (f(k) * f(n-k))
 
 	answer2 = f(n, k) / f(n-k)
-	print f(n, k)
+	# print f(n, k)
 
 	# print answer
-	# print answer2
+	print answer2
 main()

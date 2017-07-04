@@ -7,11 +7,12 @@
 # we get 3, 5, 6, and 9. The sum of these multiples is 23.
 # Find the sum of all the multiples of 3 or 5 below 1000
 
-sumofmultiples = 0
-for i in range(1, 1000):
-	if i % 3 == 0 or i % 5 == 0:
-		sumofmultiples += i
+def main():
+	sumofmultiples = 0
+	for i in range(1, 1000):
+		if i % 3 == 0 or i % 5 == 0:
+			sumofmultiples += i
 
-print sumofmultiples
+	print sumofmultiples
 
-# Solved
+main()

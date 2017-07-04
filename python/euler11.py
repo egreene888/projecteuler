@@ -36,27 +36,44 @@ SOLVED
 """
 
 def maxproduct(grid, i, j):
-    # not exactly elegant exception handling
     try:
-        down = grid[i][j] * grid[i][j+1] * grid[i][j+2] * grid[i][j+3]
+        down = 1
+        for k in range(4):
+            down *= grid[i][j+k]
+        # down = grid[i][j] * grid[i][j+1] * grid[i][j+2] * grid[i][j+3]
     except IndexError:
         down = 0
+
     try:
-        diagonal1 = grid[i][j] * grid[i+1][j+1] * grid[i+2][j+2] * grid[i+3][j+3]
+        diagonal1 = 1
+        for k in range(4):
+            diagonal1 *= grid[i+k][j+k]
+        # diagonal1 = grid[i][j] * grid[i+1][j+1] * grid[i+2][j+2] * grid[i+3][j+3]
     except IndexError:
         diagonal1 = 0
+
     try:
-        diagonal2 = grid[i][j] * grid[i-1][j+1] * grid[i-2][j+2] * grid[i-3][j+3]
+        diagonal2 = 1
+        for k in range(4):
+            diagonal2 *= grid[i-k][j+k]
+        # diagonal2 = grid[i][j] * grid[i-1][j+1] * grid[i-2][j+2] * grid[i-3][j+3]
     except IndexError:
         diagonal2 = 0
+
     try:
-        right = grid[i][j] * grid[i+1][j] * grid[i+2][j] * grid[i+3][j]
+        right = 1
+        for k in range(4):
+            right *= grid[i+k][j]
+        # right = grid[i][j] * grid[i+1][j] * grid[i+2][j] * grid[i+3][j]
     except IndexError:
         right = 0
+
     return max([down, diagonal1, diagonal2,  right])
 
 def main():
     # we're going to read the thing from a file.
+    # reads the file into a nested list where gridlist[i][j] represents
+    # the element in the ith row and the jth column.
     gridfile = open('euler11.txt', 'r')
     gridlist = gridfile.read().split('\n')
     gridfile.close()
@@ -78,8 +95,5 @@ def main():
                 answer = product
 
     print 'answer = %d' %(answer)
-
-
-
 
 main()

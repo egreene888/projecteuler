@@ -20,12 +20,11 @@ def main():
 
     for i in range(len(primes) - 1):
         j = primes[i] + 1
+        # print primes
         while True:
             primeflag = True
-            for p in primes:
-                if p is None:
-                    continue
-                if j % p == 0:
+            for prime in primes[:i]:
+                if j % prime == 0: # j is not prime
                     primeflag = False
                     break
             if primeflag:

@@ -42,17 +42,28 @@ def recursive_approach(L, position = 0, nestlevel = 0):
     if nestlevel == len(L) - 1:
         return L[nestlevel][position]
     else:
-        print nestlevel
+        if nestlevel < 10: print nestlevel
         firstanswer = recursive_approach(L, position, nestlevel + 1)
         secondanswer = recursive_approach(L, position + 1, nestlevel + 1)
         # print [firstanswer, secondanswer]
 
         return L[nestlevel][position] + max(firstanswer, secondanswer)
 
+def iterative_approach(L):
+    for i in range(len(L) - 1, 0, -1):
+        for j in range(len(L[i])-1):
+            L[i-1][j] += max(L[i][j], L[i][j+1])
+        print i
+    return L[0][0]
+
 def main():
     listofnums = read_file()
-    answer = recursive_approach(listofnums)
+    # answer = recursive_approach(listofnums)
+    answer = iterative_approach(listofnums)
     print answer
+
+    # answers may include
+    # 7273
 
 
 main()

@@ -11,7 +11,6 @@
 # by integers, and then check to see if the integers in question are prime.
 
 def main():
-	# Declare some variables to use later
 	# n = 27
 	# n = 13195
 	n = 600851475143

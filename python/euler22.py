@@ -47,12 +47,12 @@ def score(S):
 
 def main():
     listofnames = readfile()
-    reftime = time.time()
+    starttime = time.time()
     # sortlist(listofnames)
     # wait a sec. Python has a built-in sort function.
     listofnames.sort()
     print 'Sorted List'
-    print 'That took {} sec'.format(time.time() - reftime)
+    print 'That took {} sec'.format(time.time() - starttime)
 
     answer = 0
     # calculate scores

@@ -6,14 +6,17 @@ What is the sum of the digits of the number 2^1000?
 
 SOLVED
 Solution basically uses type conversion. This would be harder in a language that
-couldn't easily move between types. 
+couldn't easily move between types.
 """
 
-giganticnumber = 2**1000
-giganticstring = str(giganticnumber)
+def main():
+	giganticnumber = 2**1000
+	giganticstring = str(giganticnumber)
 
-answer = 0
-for i in range(len(giganticstring)):
-	answer += int(giganticstring[i])
+	answer = 0
+	for digit in giganticstring:
+		answer += digit
 
-print answer
+	print answer
+
+main()

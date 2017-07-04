@@ -7,17 +7,25 @@
 # What is the smallest positive number that can be is evenly divisible by all
 # the numbers 1 through 20?
 
-n = 10
-n = 20
+def main():
+	n = 10
+	n = 20
 
-factors = range(1, n+1)
-lcm = n
+	factors = range(1, n+1)
+	lcm = n
 
-while 1:
-	lcm += n
-	for i in factors:
-		if lcm % i != 0:
+	while 1:
+		lcm += n
+		for i in factors:
+			if lcm % i != 0:
+				break
+		else:
+			print 'lcm = ', lcm
 			break
-	else:
-		print 'lcm = ', lcm
-		break
+
+
+
+
+main()
+
+# the answer is 232792560

@@ -25,7 +25,7 @@ SOLVED
 """
 # Set the number of factors necessary
 n = 5
-n = 50
+n = 500
 # t and triangle are n and T such that we are on T_n
 t = 1
 triangle = 1

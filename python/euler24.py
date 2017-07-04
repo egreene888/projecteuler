@@ -1,5 +1,5 @@
 """
-A permutationis an ordered arrangement of digits. For example 3124 is one
+A permutation is an ordered arrangement of digits. For example 3124 is one
 possible permutation of the digits 1, 2, 3, and 4. If all the permutations are
 listed numerically or alphabetically, we call it lexicographic order. The
 lexicographic permutations of 0, 1, and 2 are:
@@ -8,4 +8,15 @@ lexicographic permutations of 0, 1, and 2 are:
 
 What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5
 6, 7, 8, and 9.
+
 """
+
+def main():
+    digits = [0, 1, 2]
+    index = 4
+    combo = [0, 1, 2]
+
+    for _ in range(index):
+        
+
+main()

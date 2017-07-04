@@ -13,7 +13,7 @@ Evaluate the sum of all the amicable numbers under 10000.
 import time
 import math
 
-def d(n):
+def divisors(n):
     """ Calculates the sum of the proper divisors of a number
     Doesn't use a particularly clever method """
     divsum = 1 # 1 is a factor for every number
@@ -28,12 +28,12 @@ def d(n):
 def main():
     t1 = time.time()
     answer = 0
-    # print d(284)
+    # print divisors(284)
     for i in range(2, 10000):
         # Check to see if the number is amicable.
-        sumoffactors = d(i)
-        doublesumoffactors = d(sumoffactors)
-        # print '%d -> %d -> %d' %(i, sumoffactors, d(sumoffactors))
+        sumoffactors = divisors(i)
+        doublesumoffactors = divisors(sumoffactors)
+        # print '%d -> %d -> %d' %(i, sumoffactors, divisors(sumoffactors))
 
         if (i == doublesumoffactors) and (i != sumoffactors):
             print '%d and %d are amicable numbers' %(i, sumoffactors)

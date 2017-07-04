@@ -61,15 +61,27 @@ def recursive_approach(L, position = 0, nestlevel = 0):
         secondanswer = recursive_approach(L, position + 1, nestlevel + 1)
         # print [firstanswer, secondanswer]
 
+        print nestlevel, firstanswer, secondanswer
+
         return L[nestlevel][position] + max(firstanswer, secondanswer)
+
+def iterative_approach(L):
+
+    for i in range(len(L) - 1, 0, -1):
+        for j in range(len(L[i])-1):
+            L[i-1][j] += max(L[i][j], L[i][j+1])
+        print L[i]
+    return L[0][0]
 
 
 def main():
     listofnums = read_list()
-    # easy_problem = [[3], [7, 4], [2, 4, 6], [8, 5, 9, 3]]
+    easy_problem = [[3], [7, 4], [2, 4, 6], [8, 5, 9, 3]]
     # print recursive_approach(easy_problem)
+    # print iterative_approach(easy_problem)
 
-    answer = recursive_approach(listofnums)
+    # answer = recursive_approach(listofnums)
+    answer = iterative_approach(listofnums)
     print answer
 
 main()
